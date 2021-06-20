@@ -23,4 +23,11 @@ contract TransfersExample {
         receivedMoney = 0;
     }
     
+    function withdrawAmountToAddress(address payable toAddress, uint amount) public {
+        if(amount <= receivedMoney){
+            toAddress.transfer(amount);
+            receivedMoney -= amount;
+        }
+    }
+    
 }
